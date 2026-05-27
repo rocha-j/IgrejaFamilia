@@ -3,16 +3,16 @@ import { Link } from 'react-router-dom'
 import styles from './Home.module.css'
 
 const slides = [
-  { bg: '#1a1a2e', imgUrl: '/assets/im1.jpg', label: 'Slide 1' },
-  { bg: '#16213e', imgUrl: '/assets/im2.jpg', label: 'Slide 2' },
-  { bg: '#0f3460', imgUrl: '/assets/im3.webp', label: 'Slide 3' },
-  { bg: '#533483', imgUrl: '/assets/im4.jpg', label: 'Slide 4' },
+  { bg: '#1a1a2e', imgUrl: `${import.meta.env.BASE_URL}assets/im1.jpg`, label: 'Slide 1' },
+  { bg: '#16213e', imgUrl: `${import.meta.env.BASE_URL}assets/im2.jpg`, label: 'Slide 2' },
+  { bg: '#0f3460', imgUrl: `${import.meta.env.BASE_URL}assets/im3.webp`, label: 'Slide 3' },
+  { bg: '#533483', imgUrl: `${import.meta.env.BASE_URL}assets/im4.jpg`, label: 'Slide 4' },
 ]
 
 const cards = [
-  { title: 'CULTOS', desc: 'Confira nossa agenda e participe!', cta: 'Saiba mais', imgUrl: '/assets/cd2.jpg', bg: '#1a1a2e', route: '/cults' },
-  { title: 'NÓS', desc: 'Conheça nossa história e comunidade.', cta: 'Saiba mais', imgUrl: '/assets/cd3.jpg', bg: '#16213e', route: '/about' },
-  { title: 'CONTATO', desc: 'Deseja falar conosco ou fazer um pedido?', cta: 'Saiba mais', imgUrl: '/assets/cd1.webp', bg: '#0f3460', route: '/contact' },
+  { title: 'CULTOS', desc: 'Confira nossa agenda e participe!', cta: 'Saiba mais', imgUrl: `${import.meta.env.BASE_URL}assets/cd2.jpg`, bg: '#1a1a2e', route: '/cults' },
+  { title: 'NÓS', desc: 'Conheça nossa história e comunidade.', cta: 'Saiba mais', imgUrl: `${import.meta.env.BASE_URL}assets/cd3.jpg`, bg: '#16213e', route: '/about' },
+  { title: 'CONTATO', desc: 'Deseja falar conosco ou fazer um pedido?', cta: 'Saiba mais', imgUrl: `${import.meta.env.BASE_URL}assets/cd1.webp`, bg: '#0f3460', route: '/contact' },
 ]
 
 export default function Home() {

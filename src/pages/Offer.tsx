@@ -7,7 +7,7 @@ const cards = [
     title: 'UMA NOVA CASA',
     desc: 'Faça parte deste projeto! Doe através do QR Code ou pela chave PIX.',
     pix: 'familiaemprojeto.ofc@gmail.com',
-    qr: '/assets/qrcodevermelho.png',
+    qr: `${import.meta.env.BASE_URL}assets/qrcodevermelho.png`,
     color: '#c0284a'
   },
   {
@@ -16,8 +16,8 @@ const cards = [
     title: 'DÍZIMOS & OFERTAS',
     desc: 'Cada um dê conforme determinou em seu coração, pois Deus ama quem dá com alegria. 2 Cor 9:7',
     pix: 'igrejafamiliaa@gmail.com',
-    qr: '/assets/qrcodeazul.png',
-    color: '#1a3a7a'
+    qr: `${import.meta.env.BASE_URL}assets/qrcodeazul.png`,
+    color: '#1d4888'
   },
   {
     id: 3,
@@ -25,7 +25,7 @@ const cards = [
     title: 'MISSÃO FAMÍLIA',
     desc: 'Contribua e nos ajude nas ações sociais. Para mais informações fale com Paulo César.',
     pix: 'missaoigrejafamiliaa@gmail.com',
-    qr: '/assets/qrcodeverde.png',
+    qr: `${import.meta.env.BASE_URL}assets/qrcodeverde.png`,
     color: '#1a7a3a'
   },
 ]

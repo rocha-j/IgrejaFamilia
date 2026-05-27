@@ -7,7 +7,7 @@ export default function About() {
       <div className={styles.aboutContainer}>
 
         <div className={styles.aboutImageSide}>
-          <img src="/assets/im4.jpg" alt="Igreja Família" className={styles.aboutImg} />
+          <img src={`${import.meta.env.BASE_URL}assets/im4.jpg`} alt="Igreja Família" className={styles.aboutImg} />
           <div className={styles.aboutBadge}>
             <span className={styles.badgeNumber}>5+</span>
             <span className={styles.badgeLabel}>Anos de Comunidade</span>

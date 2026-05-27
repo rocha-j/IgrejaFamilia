@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600&display=swap');
+
+.aboutPage {
+  min-height: calc(100vh - 155px);
+  background: #0a0a0a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 60px;
+  font-family: 'Barlow', sans-serif;
+  box-sizing: border-box;
+}
+
+.aboutContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  max-width: 1100px;
+  width: 100%;
+  align-items: center;
+}
+
+.aboutImageSide {
+  position: relative;
+}
+
+.aboutImg {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  border-radius: 12px;
+  filter: grayscale(30%);
+  display: block;
+}
+
+.aboutBadge {
+  position: absolute;
+  bottom: 24px;
+  right: -16px;
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 10px;
+  padding: 14px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.badgeNumber {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 32px;
+  color: #f0c040;
+  line-height: 1;
+}
+
+.badgeLabel {
+  font-size: 11px;
+  color: #888;
+  letter-spacing: 1px;
+  margin-top: 4px;
+}
+
+.aboutContent {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.aboutTag {
+  font-size: 11px;
+  color: #f0c040;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  border: 1px solid rgba(240, 192, 64, 0.27);
+  border-radius: 20px;
+  padding: 5px 12px;
+  display: inline-block;
+  width: fit-content;
+}
+
+.aboutContent h1 {
+  font-family: 'Barlow', sans-serif;
+  font-size: clamp(26px, 3vw, 40px);
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.highlight { color: #f0c040; }
+
+.aboutDesc {
+  color: #888;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.aboutFeatures {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.featureIcon {
+  width: 32px;
+  height: 32px;
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.featureLabel {
+  font-size: 14px;
+  color: #ccc;
+}
+
+.aboutCta {
+  color: #f0c040;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  display: inline-block;
+  transition: letter-spacing 0.2s;
+}
+
+.aboutCta:hover { letter-spacing: 2px; }
+
+@media (max-width: 768px) {
+  .aboutPage { padding: 40px 20px; align-items: flex-start; }
+  .aboutContainer { grid-template-columns: 1fr; gap: 32px; }
+  .aboutImg { height: 280px; }
+  .aboutBadge { right: 12px; bottom: 12px; }
+}

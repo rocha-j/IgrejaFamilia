@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500&display=swap');
+
+.cultosPage {
+  min-height: calc(100vh - 155px);
+  background-color: #0a0a0a;
+  padding: 40px 40px;
+  font-family: 'Barlow', sans-serif;
+  box-sizing: border-box;
+}
+
+.cultosHeader {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.cultosHeader h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(40px, 8vw, 72px);
+  color: #fff;
+  letter-spacing: 8px;
+  margin: 0;
+  line-height: 1;
+}
+
+.subtitle {
+  color: #888;
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-top: 8px;
+}
+
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.cultoCard {
+  background: #111;
+  border-radius: 12px;
+  border: 1px solid #222;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.cultoCard:hover {
+  transform: translateY(-6px) scale(1.02);
+  border-color: var(--accent);
+  box-shadow: 0 12px 40px color-mix(in srgb, var(--accent) 25%, transparent);
+}
+
+.cardDay {
+  background: var(--accent);
+  color: #000;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 12px;
+  letter-spacing: 3px;
+  padding: 6px 16px;
+  display: inline-block;
+  align-self: flex-start;
+  border-radius: 0 0 8px 0;
+}
+
+.cardBody {
+  padding: 20px 20px 16px;
+  flex: 1;
+}
+
+.cardTitle {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 26px;
+  color: #fff;
+  letter-spacing: 2px;
+  margin: 0 0 8px;
+  line-height: 1.1;
+}
+
+.cardTime {
+  color: var(--accent);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.timeIcon {
+  margin-right: 6px;
+  font-size: 12px;
+}
+
+.cardDesc {
+  color: #888;
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .cardsGrid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .cultosPage { padding: 24px 16px; }
+  .cardsGrid { grid-template-columns: 1fr; gap: 14px; }
+  .cultosHeader { margin-bottom: 20px; }
+}

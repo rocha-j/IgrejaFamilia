@@ -1,53 +1,51 @@
-import { Link } from 'react-router-dom'
 import styles from './About.module.css'
+
+const pillars = [
+  {
+    word: 'Amar',
+    script: 'nosso propósito',
+    body: 'Manifestamos o amor de Deus em Cristo, pelo poder do Espírito Santo, servindo uns aos outros com dedicação e paixão. A cada dia, buscamos viver o caráter extraordinário de Cristo, transformando o mundo ao nosso redor.',
+  },
+  {
+    word: 'Servir',
+    script: 'nossa missão',
+    body: 'Servimos de forma extraordinária, ultrapassando as quatro paredes e impactando todas as esferas da sociedade. Com compaixão, assistimos os necessitados e lideramos com excelência, gerando transformação e deixando um legado poderoso.',
+  },
+  {
+    word: 'Restaurar',
+    script: 'nossa visão',
+    body: 'Valorizamos e cuidamos deste projeto extraordinário de Deus: a família. Inspiramos o caráter de Cristo, estabelecendo a cultura do Reino de Deus e transformando pessoas comuns em discípulos extraordinários de Jesus.',
+  },
+]
 
 export default function About() {
   return (
     <section className={styles.aboutPage}>
-      <div className={styles.aboutContainer}>
 
-        <div className={styles.aboutImageSide}>
-          <img src={`${import.meta.env.BASE_URL}assets/im4.jpg`} alt="Igreja Família" className={styles.aboutImg} />
-          <div className={styles.aboutBadge}>
-            <span className={styles.badgeNumber}>5+</span>
-            <span className={styles.badgeLabel}>Anos de Comunidade</span>
-          </div>
-        </div>
-
-        <div className={styles.aboutContent}>
-          <span className={styles.aboutTag}>● NOSSA HISTÓRIA</span>
-
-          <h1>Fé para o <span className={styles.highlight}>Mundo</span> Moderno</h1>
-
-          <p className={styles.aboutDesc}>
-            Acreditamos que verdades eternas podem ser expressas por meio de uma linguagem contemporânea
-            e de uma comunidade acolhedora. Nossa igreja é construída sobre a base da inclusão radical
-            e do crescimento espiritual genuíno.
-          </p>
-          <p className={styles.aboutDesc}>
-            Seja você um crente de longa data ou alguém que está apenas começando sua jornada,
-            aqui você encontrará um espaço que respeita seu caminho e desafia sua perspectiva.
-          </p>
-
-          <div className={styles.aboutFeatures}>
-            <div className={styles.featureItem}>
-              <span className={styles.featureIcon}>🤝</span>
-              <span className={styles.featureLabel}>Comunidade Inclusiva</span>
-            </div>
-            <div className={styles.featureItem}>
-              <span className={styles.featureIcon}>📖</span>
-              <span className={styles.featureLabel}>Exploração Espiritual</span>
-            </div>
-            <div className={styles.featureItem}>
-              <span className={styles.featureIcon}>❤️</span>
-              <span className={styles.featureLabel}>Compaixão Ativa</span>
-            </div>
-          </div>
-
-          <Link to="/cults" className={styles.aboutCta}>Conheça nossos Cultos →</Link>
-        </div>
-
+      <div className={styles.hero}>
+        <span className={styles.heroTag}>● QUEM SOMOS</span>
+        <h1 className={styles.heroTitle}>
+          Uma Igreja que <span className={styles.highlight}>transforma</span> vidas
+        </h1>
+        <p className={styles.heroSub}>
+          Somos uma comunidade movida por três convicções que definem tudo o que fazemos.
+        </p>
+        <div className={styles.heroDivider} />
       </div>
+
+      <div className={styles.pillarsGrid}>
+        {pillars.map((p) => (
+          <div key={p.word} className={styles.pillarCard}>
+            <div className={styles.cardTop}>
+              <h2 className={styles.pillarWord}>{p.word}</h2>
+              <span className={styles.pillarScript}>{p.script}</span>
+            </div>
+            <div className={styles.cardDivider} />
+            <p className={styles.pillarBody}>{p.body}</p>
+          </div>
+        ))}
+      </div>
+
     </section>
   )
 }

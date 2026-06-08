@@ -150,7 +150,7 @@
 
 .nameFamilia {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(26px, 6vw, 42px);
+  font-size: clamp(20px, 4.5vw, 30px);
   letter-spacing: 7px;
   color: #f0c040;
   line-height: 1;

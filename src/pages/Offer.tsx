@@ -6,10 +6,10 @@ const cards = [
     id: 1,
     tag: 'PROJETO',
     title: 'UMA NOVA CASA',
-    desc: 'Faça parte deste projeto! Faça sua doação através do QR Code ao lado, ou através da chave Pix.',
+    desc: 'Faça parte deste projeto! Faça sua contribuição  através do QR Code ao lado, ou através da chave Pix.',
     pix: 'familiaemprojeto.ofc@gmail.com',
     qr: `${import.meta.env.BASE_URL}assets/qrcodevermelho.png`,
-    accent: '#c0284a',
+    accent: '#f0c040',
     verse: null,
     note: null,
   },
@@ -20,7 +20,7 @@ const cards = [
     desc: 'Cada um contribua segundo propôs no seu coração; não com tristeza, ou por necessidade; porque Deus ama ao que dá com alegria.',
     pix: 'igrejafamiliaa@gmail.com',
     qr: `${import.meta.env.BASE_URL}assets/qrcodeazul.png`,
-    accent: '#1d4888',
+    accent: '#f0c040',
     verse: '2 Coríntios 9:7',
     note: null,
   },
@@ -31,7 +31,7 @@ const cards = [
     desc: 'Contribua e nos ajude nas ações sociais da Igreja Família.',
     pix: 'missaoigrejafamilia@gmail.com',
     qr: `${import.meta.env.BASE_URL}assets/qrcodeverde.png`,
-    accent: '#1a7a3a',
+    accent: '#f0c040',
     verse: null,
     note: 'Para conhecer os projetos e ajudar de outras maneiras, procure o líder de missões, Paulo César.',
   },
@@ -89,8 +89,11 @@ export default function Offer() {
 
       <div className={styles.hero}>
         <span className={styles.heroTag}>● CONTRIBUIÇÕES</span>
-        <h1 className={styles.heroTitle}>Dízimos <span className={styles.amp}>&</span> Ofertas</h1>
+        <h1 className={styles.heroTitle}>
+          Dízimos & <span className={styles.highlight}>Ofertas</span>
+        </h1>
         <p className={styles.heroSub}>Sua generosidade impulsiona a missão e transforma vidas.</p>
+        <div className={styles.heroDivider} />
       </div>
 
       <div className={styles.cardsList}>

@@ -9,12 +9,28 @@ const cultos = [
   { id: 6, nome: 'Instituto Saber', dia: 'DOMINGO', horario: '08:00H', descricao: 'Todo domingo uma oportunidade de aprendizado e crescimento espiritual.', color: '#f0c040' },
 ]
 
+function ClockIcon() {
+  return (
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="12" r="10" />
+      <polyline points="12 6 12 12 16 14" />
+    </svg>
+  )
+}
+
 export default function Cults() {
   return (
     <section className={styles.cultosPage}>
-      <div className={styles.cultosHeader}>
-        <h1>CULTOS</h1>
-        <p className={styles.subtitle}>Venha fazer parte da nossa família</p>
+
+      <div className={styles.hero}>
+        <span className={styles.heroTag}>● PROGRAMAÇÃO</span>
+        <h1 className={styles.heroTitle}>
+          Nossos <span className={styles.highlight}>Cultos</span>
+        </h1>
+        <p className={styles.heroSub}>
+          Venha fazer parte da nossa família. Participe dos nossos encontros semanais.
+        </p>
+        <div className={styles.heroDivider} />
       </div>
 
       <div className={styles.cardsGrid}>
@@ -28,14 +44,16 @@ export default function Cults() {
             <div className={styles.cardBody}>
               <h2 className={styles.cardTitle}>{culto.nome}</h2>
               <div className={styles.cardTime}>
-                <span className={styles.timeIcon}>⏱</span>
+                <ClockIcon />
                 {culto.horario}
               </div>
+              <div className={styles.cardDivider} />
               <p className={styles.cardDesc}>{culto.descricao}</p>
             </div>
           </div>
         ))}
       </div>
+
     </section>
   )
 }

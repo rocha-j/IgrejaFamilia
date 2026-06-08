@@ -1,21 +1,33 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400&display=swap');
 
-.introOverlay {
+/* ── Overlay ── */
+.overlay {
   position: fixed;
   inset: 0;
-  background: #000;
+  background: #080808;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 9999;
-  transition: opacity 400ms ease;
+  overflow: hidden;
+  transition: opacity 500ms ease;
 }
 
-.introOverlay.hiding {
+/* Glow ambiente dourado no centro */
+.overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 48%, rgba(240, 192, 64, 0.08) 0%, transparent 58%);
+  pointer-events: none;
+}
+
+.overlay.hiding {
   opacity: 0;
   pointer-events: none;
 }
 
+/* ── Cortinas ── */
 .curtainLeft,
 .curtainRight {
   position: absolute;
@@ -25,71 +37,152 @@
   background: #111;
   z-index: 2;
   transform: scaleX(0);
-  transition: transform 700ms cubic-bezier(0.76, 0, 0.24, 1);
+  transition: transform 720ms cubic-bezier(0.76, 0, 0.24, 1);
 }
 
-.curtainLeft { left: 0; transform-origin: left; }
+.curtainLeft  { left: 0;  transform-origin: left;  }
 .curtainRight { right: 0; transform-origin: right; }
 
-.curtainLeft.expand,
-.curtainRight.expand { transform: scaleX(1); }
+.curtainLeft.curtainIn,
+.curtainRight.curtainIn { transform: scaleX(1); }
 
-.curtainLeft.collapse,
-.curtainRight.collapse { transform: scaleX(0); }
+.curtainLeft.curtainOut,
+.curtainRight.curtainOut { transform: scaleX(0); }
 
-.logoWrap {
+/* ── Container central ── */
+.center {
+  position: relative;
+  z-index: 3;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
-  z-index: 3;
+  gap: 18px;
 }
 
-.logoCircle {
-  width: 90px;
-  height: 90px;
+/* ── Área do logo ── */
+.logoWrap {
+  position: relative;
+  width: clamp(90px, 16vw, 120px);
+  height: clamp(90px, 16vw, 120px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Anéis de pulso ── */
+.ring {
+  position: absolute;
+  inset: 0;
   border-radius: 50%;
-  border: 3px solid #f0c040;
-  overflow: hidden;
-  transform: translateX(100vw) rotate(0deg);
+  border: 1.5px solid rgba(240, 192, 64, 0.55);
   opacity: 0;
-  transition: transform 1000ms cubic-bezier(0.34, 1.56, 0.64, 1),
-              opacity 600ms ease;
+  pointer-events: none;
 }
 
-.logoCircle.enter {
-  transform: translateX(0) rotate(720deg);
+/* Segundo anel sai com 450ms de atraso */
+.ringDelay { animation-delay: 0.45s !important; }
+
+@keyframes ringExpand {
+  0%   { transform: scale(1);   opacity: 0.7; }
+  100% { transform: scale(2.8); opacity: 0;   }
+}
+
+.ring.ringPulse {
+  animation: ringExpand 1.6s cubic-bezier(0.2, 0, 0.6, 1) forwards;
+}
+
+/* ── Círculo do logo ── */
+.logoCircle {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2.5px solid #f0c040;
+  overflow: hidden;
+  transform: scale(0.25);
+  opacity: 0;
+  box-shadow: 0 0 0 rgba(240, 192, 64, 0);
+  transition:
+    transform   950ms cubic-bezier(0.34, 1.56, 0.64, 1),
+    opacity     700ms ease,
+    box-shadow  950ms ease;
+}
+
+.logoCircle.logoEnter {
+  transform: scale(1);
   opacity: 1;
+  box-shadow:
+    0 0 32px rgba(240, 192, 64, 0.28),
+    0 0 72px rgba(240, 192, 64, 0.10);
 }
 
 .logoCircle img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
-.logoText {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 24px;
-  letter-spacing: 4px;
-  color: #fff;
+/* ── Nome ── */
+.nameWrap {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
   opacity: 0;
-  transform: translateY(8px);
-  transition: opacity 500ms ease, transform 500ms ease;
+  transform: translateY(16px);
+  transition:
+    opacity   680ms ease,
+    transform 680ms cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-.logoText.show {
+.nameWrap.nameShow {
   opacity: 1;
   transform: translateY(0);
 }
 
-.logoText span { color: #f0c040; }
-
-.dividerLine {
-  width: 0;
-  height: 1px;
-  background: #f0c040;
-  transition: width 600ms ease;
+.nameChurch {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(20px, 4.5vw, 30px);
+  letter-spacing: 9px;
+  color: #d0d0d0;
+  line-height: 1;
 }
 
-.dividerLine.expand { width: 240px; }
+.nameFamilia {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(26px, 6vw, 42px);
+  letter-spacing: 7px;
+  color: #f0c040;
+  line-height: 1;
+}
+
+/* ── Linha divisória ── */
+.line {
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #f0c040 40%, #f0c040 60%, transparent);
+  transition: width 750ms cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.line.lineExpand {
+  width: clamp(140px, 26vw, 240px);
+}
+
+/* ── Tagline ── */
+.tagline {
+  font-family: 'Barlow', sans-serif;
+  font-size: clamp(9px, 1.8vw, 11px);
+  font-weight: 300;
+  color: #484848;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  margin: 0;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 650ms ease, transform 650ms ease;
+}
+
+.tagline.taglineShow {
+  opacity: 1;
+  transform: translateY(0);
+}

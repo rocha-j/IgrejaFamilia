@@ -1,59 +1,141 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600&display=swap');
 
+/* ── Page shell ── */
 .homePage {
   display: flex;
   flex-direction: column;
-  background: #000;
-  min-height: calc(100vh - 155px);
+  background: #0a0a0a;
 }
 
+/* ── Carousel ── */
 .carouselWrapper {
   position: relative;
   width: 100%;
-  height: 500px;
+  height: clamp(420px, calc(100vh - 64px), 800px);
+  overflow: hidden;
 }
 
 .carouselViewport {
   width: 100%;
   height: 100%;
-  overflow: hidden;
 }
 
 .carouselTrack {
   display: flex;
   height: 100%;
-  transition: transform 0.5s ease;
+  transition: transform 0.65s cubic-bezier(0.77, 0, 0.175, 1);
 }
 
 .slide {
   flex: 0 0 100%;
   height: 100%;
+  background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
 }
 
+/* ── Hero overlay ── */
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 24px 20px;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.1) 0%,
+    rgba(0, 0, 0, 0.55) 55%,
+    rgba(0, 0, 0, 0.88) 100%
+  );
+  z-index: 2;
+  pointer-events: none;
+}
+
+.heroTag {
+  font-size: 11px;
+  color: #f0c040;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  border: 1px solid rgba(240, 192, 64, 0.4);
+  border-radius: 20px;
+  padding: 5px 14px;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.heroTitle {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 600;
+  font-size: clamp(32px, 5vw, 64px);
+  color: #fff;
+  line-height: 1.2;
+  margin: 0 0 28px;
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.6);
+}
+
+.heroAccent {
+  color: #f0c040;
+  display: block;
+}
+
+.heroCta {
+  pointer-events: all;
+  display: inline-block;
+  background: #f0c040;
+  color: #000;
+  font-family: 'Barlow', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 13px 32px;
+  border-radius: 10px;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+}
+
+.heroCta:hover {
+  background: #e0b030;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(240, 192, 64, 0.35);
+}
+
+/* ── Nav arrows ── */
 .navBtn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   z-index: 10;
-  background: rgba(0, 0, 0, 0.45);
-  color: white;
-  border: none;
+  background: rgba(0, 0, 0, 0.38);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 50%;
-  width: 44px;
-  height: 44px;
-  font-size: 20px;
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  transition: background 0.2s;
+  backdrop-filter: blur(6px);
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
 }
 
-.navBtn:hover { background: rgba(0, 0, 0, 0.75); }
-.prev { left: 16px; }
-.next { right: 16px; }
+.navBtn:hover {
+  background: rgba(240, 192, 64, 0.2);
+  border-color: rgba(240, 192, 64, 0.5);
+  color: #f0c040;
+}
 
+.prev { left: 20px; }
+.next { right: 20px; }
+
+/* ── Dots ── */
 .dots {
   position: absolute;
-  bottom: 12px;
+  bottom: 22px;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -62,87 +144,174 @@
 }
 
 .dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.45);
+  width: 7px;
+  height: 7px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.3);
+  border: none;
   cursor: pointer;
-  transition: background 0.3s;
+  padding: 0;
+  transition: width 0.3s ease, background 0.3s ease;
 }
 
-.dot.active { background: white; }
+.dotActive {
+  width: 26px;
+  background: #f0c040;
+}
 
+/* ── Discover section ── */
+.discoverSection {
+  background: #0a0a0a;
+  padding: 64px 40px 72px;
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.sectionTag {
+  font-size: 11px;
+  color: #f0c040;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  border: 1px solid rgba(240, 192, 64, 0.3);
+  border-radius: 20px;
+  padding: 5px 14px;
+  display: inline-block;
+  margin-bottom: 16px;
+}
+
+.sectionTitle {
+  font-family: 'Barlow', sans-serif;
+  font-size: clamp(24px, 3.5vw, 40px);
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.accent { color: #f0c040; }
+
+/* ── Cards grid ── */
 .homeCards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  height: 200px;
-  flex-shrink: 0;
+  gap: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
 .homeCard {
   position: relative;
+  height: clamp(220px, 26vw, 320px);
+  border-radius: 14px;
   overflow: hidden;
-  cursor: pointer;
   text-decoration: none;
-  background: #1a1a1a;
+  display: block;
+  border: 1px solid #1e1e1e;
+  transition:
+    transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+    border-color 0.3s,
+    box-shadow 0.3s;
 }
 
-.homeCard:hover .cardOverlay { background: rgba(0, 0, 0, 0.2); }
-.homeCard:hover .cardBtn { background: #f0c040; color: #000; }
+.homeCard:hover {
+  transform: translateY(-6px) scale(1.015);
+  border-color: rgba(240, 192, 64, 0.3);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5);
+}
+
+.cardBg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: transform 0.6s ease;
+}
+
+.homeCard:hover .cardBg { transform: scale(1.06); }
 
 .cardOverlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.55);
-  transition: background 0.3s;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.88) 0%,
+    rgba(0, 0, 0, 0.28) 55%,
+    transparent 100%
+  );
+  transition: opacity 0.3s;
 }
 
 .cardContent {
-  position: relative;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
   z-index: 2;
-  height: 100%;
+  padding: 24px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   gap: 6px;
-  padding: 16px;
-  text-align: center;
 }
 
 .cardTitle {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 24px;
+  font-size: 30px;
   color: #fff;
-  letter-spacing: 4px;
+  letter-spacing: 3px;
   margin: 0;
+  line-height: 1;
 }
 
 .cardDesc {
-  color: #ddd;
-  font-size: 12px;
+  color: #bbb;
+  font-size: 13px;
+  font-weight: 300;
   margin: 0;
   font-family: 'Barlow', sans-serif;
+  line-height: 1.55;
 }
 
 .cardBtn {
-  margin-top: 6px;
-  background: rgba(240, 192, 64, 0.2);
-  color: #f0c040;
-  border: 1px solid #f0c040;
+  display: inline-block;
+  margin-top: 8px;
   font-family: 'Barlow', sans-serif;
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 2px;
   text-transform: uppercase;
-  padding: 6px 16px;
-  border-radius: 4px;
-  transition: background 0.2s, color 0.2s;
+  color: #f0c040;
+  border-bottom: 1px solid rgba(240, 192, 64, 0.35);
+  padding-bottom: 2px;
+  width: fit-content;
+  transition: border-color 0.2s, letter-spacing 0.25s;
+}
+
+.homeCard:hover .cardBtn {
+  border-color: #f0c040;
+  letter-spacing: 3px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .homeCards { grid-template-columns: repeat(2, 1fr); }
+  .homeCard:last-child { grid-column: 1 / -1; }
 }
 
 @media (max-width: 768px) {
-  .carouselWrapper { height: 50vw; min-height: 200px; }
-  .homeCards { grid-template-columns: 1fr; height: auto; }
-  .homeCard { height: 140px; }
-  .navBtn { width: 36px; height: 36px; font-size: 16px; }
+  .carouselWrapper { height: clamp(280px, 56vw, 480px); }
+  .navBtn { width: 38px; height: 38px; }
+  .discoverSection { padding: 48px 20px 56px; }
+}
+
+@media (max-width: 560px) {
+  .homeCards { grid-template-columns: 1fr; }
+  .homeCard { height: 200px; }
+  .homeCard:last-child { grid-column: auto; }
+  .navBtn { display: none; }
+  .heroTitle { font-size: clamp(26px, 8vw, 40px); }
+  .heroCta { padding: 11px 24px; font-size: 12px; }
 }

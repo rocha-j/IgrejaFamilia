@@ -47,19 +47,31 @@ Como nos conheceu: ${form.comoConheceu || 'Nao informado'}
 
   return (
     <section className={styles.contactPage}>
+
+      <div className={styles.hero}>
+        <span className={styles.heroTag}>● FALE CONOSCO</span>
+        <h1 className={styles.heroTitle}>
+          Entre em <span className={styles.highlight}>Contato</span>
+        </h1>
+        <p className={styles.heroSub}>
+          Estamos aqui para ouvir você. Preencha o formulário e nossa equipe retornará em breve.
+        </p>
+        <div className={styles.heroDivider} />
+      </div>
+
       <div className={styles.contactWrapper}>
 
         <div className={styles.stepper}>
           {steps.map((step, i) => (
-            <>
-              <div key={step.id} className={`${styles.step} ${currentStep === i ? styles.active : ''} ${currentStep > i ? styles.done : ''}`}>
-                <div className={styles.stepCircle}>{i + 1}</div>
+            <div key={step.id} className={styles.stepItem}>
+              <div className={`${styles.step} ${currentStep === i ? styles.active : ''} ${currentStep > i ? styles.done : ''}`}>
+                <div className={styles.stepCircle}>{currentStep > i ? '✓' : i + 1}</div>
                 <span className={styles.stepLabel}>{step.label}</span>
               </div>
               {i < steps.length - 1 && (
                 <div className={`${styles.stepLine} ${currentStep > i ? styles.done : ''}`} />
               )}
-            </>
+            </div>
           ))}
         </div>
 
@@ -67,7 +79,10 @@ Como nos conheceu: ${form.comoConheceu || 'Nao informado'}
 
           {currentStep === 0 && (
             <div className={styles.formSection}>
-              <h2>Informações de Contato</h2>
+              <div className={styles.sectionHeader}>
+                <span className={styles.sectionTag}>PASSO 1</span>
+                <h2>Informações de Contato</h2>
+              </div>
               <div className={styles.formRow}>
                 <div className={styles.formGroup}>
                   <label>Nome <span className={styles.required}>*</span></label>
@@ -97,7 +112,10 @@ Como nos conheceu: ${form.comoConheceu || 'Nao informado'}
 
           {currentStep === 1 && (
             <div className={styles.formSection}>
-              <h2>Informações Pessoais</h2>
+              <div className={styles.sectionHeader}>
+                <span className={styles.sectionTag}>PASSO 2</span>
+                <h2>Informações Pessoais</h2>
+              </div>
               <div className={styles.formRow}>
                 <div className={styles.formGroup}>
                   <label>Data de Nascimento</label>
@@ -143,11 +161,13 @@ Como nos conheceu: ${form.comoConheceu || 'Nao informado'}
 
         </div>
 
-        <div className={styles.formActions}>
-          {currentStep === 1 && <button className={styles.btnBack} onClick={prev}>Voltar</button>}
-          {currentStep === 0 && <button className={styles.btnNext} onClick={next}>Próximo</button>}
-          {currentStep === 1 && <button className={styles.btnNext} onClick={submit}>Enviar</button>}
-        </div>
+        {currentStep < 2 && (
+          <div className={styles.formActions}>
+            {currentStep === 1 && <button className={styles.btnBack} onClick={prev}>← Voltar</button>}
+            {currentStep === 0 && <button className={styles.btnNext} onClick={next}>Próximo →</button>}
+            {currentStep === 1 && <button className={styles.btnNext} onClick={submit}>Enviar via WhatsApp</button>}
+          </div>
+        )}
 
       </div>
     </section>

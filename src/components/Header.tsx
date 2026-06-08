@@ -19,7 +19,7 @@ export default function Header() {
 
         <NavLink to="/" className={styles.brand} onClick={close}>
           <img
-            src={`${import.meta.env.BASE_URL}assets/imglogo.jpeg`}
+            src={`${import.meta.env.BASE_URL}assets/logoatt.png`}
             alt="Igreja Família"
             className={styles.logo}
           />

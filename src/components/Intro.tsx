@@ -44,7 +44,7 @@ export default function Intro({ onDone }: IntroProps) {
           <div className={`${styles.ring} ${styles.ringDelay} ${ringPulse ? styles.ringPulse : ''}`} />
           <div className={`${styles.logoCircle} ${logoEnter ? styles.logoEnter : ''}`}>
             <img
-              src={`${import.meta.env.BASE_URL}assets/imglogo.jpeg`}
+              src={`${import.meta.env.BASE_URL}assets/logoatt.png`}
               alt="Logo Igreja Família"
             />
           </div>

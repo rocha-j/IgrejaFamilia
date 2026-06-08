@@ -1,194 +1,170 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600&display=swap');
 
-/* ── Page shell ── */
 .contactPage {
   min-height: calc(100vh - 155px);
-  background: #0a0a0a;
+  background: var(--bg-page);
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 64px 40px 80px;
   font-family: 'Barlow', sans-serif;
   box-sizing: border-box;
+  transition: background 0.35s ease;
 }
 
-/* ── Hero ── */
-.hero {
-  text-align: center;
-  max-width: 600px;
-  margin-bottom: 52px;
-}
+.hero { text-align: center; max-width: 600px; margin-bottom: 52px; }
 
 .heroTag {
   font-size: 11px;
-  color: #f0c040;
+  color: var(--accent);
   letter-spacing: 3px;
   text-transform: uppercase;
-  border: 1px solid rgba(240, 192, 64, 0.3);
+  border: 1px solid rgba(var(--accent-rgb), 0.3);
   border-radius: 20px;
   padding: 5px 14px;
   display: inline-block;
   margin-bottom: 20px;
+  transition: color 0.35s ease, border-color 0.35s ease;
 }
 
 .heroTitle {
   font-family: 'Barlow', sans-serif;
   font-size: clamp(28px, 4vw, 46px);
   font-weight: 600;
-  color: #fff;
+  color: var(--text-primary);
   line-height: 1.2;
   margin: 0 0 16px;
+  transition: color 0.35s ease;
 }
 
-.highlight { color: #f0c040; }
+.highlight { color: var(--accent); transition: color 0.35s ease; }
 
 .heroSub {
   font-size: 15px;
-  color: #666;
+  color: var(--text-secondary);
   font-weight: 300;
   line-height: 1.7;
   margin: 0 0 36px;
+  transition: color 0.35s ease;
 }
 
 .heroDivider {
   width: 48px;
   height: 2px;
-  background: linear-gradient(90deg, transparent, #f0c040, transparent);
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
   margin: 0 auto;
 }
 
-/* ── Form card wrapper ── */
 .contactWrapper {
-  background: #111;
+  background: var(--bg-card);
   border-radius: 16px;
-  border: 1px solid #1e1e1e;
+  border: 1px solid var(--border-card);
   width: 100%;
   max-width: 760px;
   overflow: hidden;
   position: relative;
-  transition: border-color 0.3s, box-shadow 0.3s;
+  transition: border-color 0.3s, box-shadow 0.3s, background 0.35s ease;
 }
 
 .contactWrapper::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at top left, rgba(240, 192, 64, 0.05) 0%, transparent 60%);
+  background: radial-gradient(ellipse at top left, rgba(var(--accent-rgb), 0.05) 0%, transparent 60%);
   pointer-events: none;
   z-index: 0;
 }
 
 .contactWrapper:focus-within {
-  border-color: rgba(240, 192, 64, 0.2);
-  box-shadow: 0 16px 48px rgba(240, 192, 64, 0.06);
+  border-color: rgba(var(--accent-rgb), 0.2);
+  box-shadow: 0 16px 48px rgba(var(--accent-rgb), 0.06);
 }
 
-/* ── Stepper ── */
 .stepper {
   display: flex;
   align-items: center;
   padding: 20px 32px;
-  background: #0d0d0d;
-  border-bottom: 1px solid #1e1e1e;
+  background: var(--bg-card-alt);
+  border-bottom: 1px solid var(--border-card);
   position: relative;
   z-index: 1;
+  transition: background 0.35s ease, border-color 0.35s ease;
 }
 
-.stepItem {
-  display: flex;
-  align-items: center;
-  flex: 1;
-}
-
+.stepItem { display: flex; align-items: center; flex: 1; }
 .stepItem:last-child { flex: 0; }
-
-.step {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-}
+.step { display: flex; flex-direction: column; align-items: center; gap: 6px; }
 
 .stepCircle {
   width: 34px;
   height: 34px;
   border-radius: 50%;
-  border: 2px solid #2a2a2a;
+  border: 2px solid var(--border-strong);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 13px;
   font-weight: 600;
-  color: #444;
+  color: var(--text-dim);
   transition: all 0.3s;
 }
 
 .stepLabel {
   font-size: 10px;
-  color: #444;
+  color: var(--text-dim);
   letter-spacing: 1.5px;
   text-transform: uppercase;
   transition: color 0.3s;
 }
 
-.step.active .stepCircle { background: #f0c040; border-color: #f0c040; color: #000; }
-.step.active .stepLabel { color: #f0c040; }
-.step.done .stepCircle { background: transparent; border-color: #f0c040; color: #f0c040; font-size: 14px; }
-.step.done .stepLabel { color: #666; }
+.step.active .stepCircle { background: var(--accent); border-color: var(--accent); color: #000; }
+.step.active .stepLabel { color: var(--accent); }
+.step.done .stepCircle { background: transparent; border-color: var(--accent); color: var(--accent); font-size: 14px; }
+.step.done .stepLabel { color: var(--text-secondary); }
 
 .stepLine {
   flex: 1;
   height: 1px;
-  background: #2a2a2a;
+  background: var(--border-strong);
   margin: 0 14px 18px;
   transition: background 0.3s;
 }
 
-.stepLine.done { background: #f0c040; }
+.stepLine.done { background: var(--accent); }
 
-/* ── Form body ── */
-.formBody {
-  padding: 32px 32px 16px;
-  position: relative;
-  z-index: 1;
-}
+.formBody { padding: 32px 32px 16px; position: relative; z-index: 1; }
 
-/* ── Section header ── */
-.sectionHeader {
-  margin-bottom: 24px;
-}
+.sectionHeader { margin-bottom: 24px; }
 
 .sectionTag {
   font-size: 10px;
-  color: #f0c040;
+  color: var(--accent);
   letter-spacing: 3px;
   text-transform: uppercase;
-  border: 1px solid rgba(240, 192, 64, 0.25);
+  border: 1px solid rgba(var(--accent-rgb), 0.25);
   border-radius: 20px;
   padding: 3px 10px;
   display: inline-block;
   margin-bottom: 10px;
+  transition: color 0.35s ease, border-color 0.35s ease;
 }
 
 .formSection h2 {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 28px;
-  color: #fff;
+  color: var(--text-primary);
   letter-spacing: 3px;
   margin: 0;
+  transition: color 0.35s ease;
 }
 
-/* ── Success state ── */
-.success {
-  text-align: center;
-  padding: 48px 0;
-}
+.success { text-align: center; padding: 48px 0; }
 
 .successIcon {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background: #f0c040;
+  background: var(--accent);
   color: #000;
   font-size: 26px;
   font-weight: 700;
@@ -196,68 +172,53 @@
   align-items: center;
   justify-content: center;
   margin: 0 auto 20px;
-  box-shadow: 0 0 32px rgba(240, 192, 64, 0.3);
+  box-shadow: 0 0 32px rgba(var(--accent-rgb), 0.3);
 }
 
-.success p {
-  color: #666;
-  font-size: 14px;
-  font-weight: 300;
-  margin: 8px 0 0;
-}
+.success p { color: var(--text-secondary); font-size: 14px; font-weight: 300; margin: 8px 0 0; }
 
-/* ── Form layout ── */
-.formRow {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  margin-bottom: 16px;
-}
+.formRow { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
 
-.formGroup {
-  display: flex;
-  flex-direction: column;
-  gap: 7px;
-  margin-bottom: 16px;
-}
+.formGroup { display: flex; flex-direction: column; gap: 7px; margin-bottom: 16px; }
 
 .formGroup label {
   font-size: 11px;
-  color: #888;
+  color: var(--text-muted);
   letter-spacing: 1.5px;
   text-transform: uppercase;
   font-weight: 500;
+  transition: color 0.35s ease;
 }
 
 .formGroup input,
 .formGroup select,
 .formGroup textarea {
-  background: #0d0d0d;
-  border: 1px solid #222;
+  background: var(--bg-input);
+  border: 1px solid var(--border-input);
   border-radius: 10px;
-  color: #e0e0e0;
+  color: var(--text-primary);
   font-family: 'Barlow', sans-serif;
   font-size: 14px;
   font-weight: 300;
   padding: 11px 16px;
-  transition: border-color 0.2s, background 0.2s;
+  transition: border-color 0.2s, background 0.2s, color 0.35s ease;
   outline: none;
   width: 100%;
   box-sizing: border-box;
 }
 
 .formGroup input::placeholder,
-.formGroup textarea::placeholder { color: #333; }
+.formGroup textarea::placeholder { color: var(--text-very-dim); }
 
 .formGroup input:hover,
 .formGroup select:hover,
-.formGroup textarea:hover { border-color: #333; }
+.formGroup textarea:hover { border-color: var(--border-strong); }
 
 .formGroup input:focus,
 .formGroup select:focus,
 .formGroup textarea:focus {
-  border-color: rgba(240, 192, 64, 0.5);
-  background: #111;
+  border-color: rgba(var(--accent-rgb), 0.5);
+  background: var(--bg-input-focus);
 }
 
 .formGroup select {
@@ -269,25 +230,29 @@
   cursor: pointer;
 }
 
-.formGroup select option { background: #111; color: #e0e0e0; }
+:global([data-theme="light"]) .formGroup select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%237F5932' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+}
+
+.formGroup select option { background: var(--bg-card); color: var(--text-primary); }
 .formGroup textarea { height: 100px; resize: none; line-height: 1.6; }
 
-.required { color: #f0c040; }
+.required { color: var(--accent); }
 
-/* ── Form actions ── */
 .formActions {
   display: flex;
   justify-content: flex-end;
   align-items: center;
   gap: 12px;
   padding: 20px 32px 28px;
-  border-top: 1px solid #1a1a1a;
+  border-top: 1px solid var(--border-subtle);
   position: relative;
   z-index: 1;
+  transition: border-color 0.35s ease;
 }
 
 .btnNext {
-  background: #f0c040;
+  background: var(--accent);
   color: #000;
   border: none;
   border-radius: 10px;
@@ -302,34 +267,29 @@
 }
 
 .btnNext:hover {
-  background: #e0b030;
+  background: var(--accent-hover);
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(240, 192, 64, 0.25);
+  box-shadow: 0 6px 20px rgba(var(--accent-rgb), 0.25);
 }
-
-.btnNext:active { transform: translateY(0); }
 
 .btnBack {
   background: transparent;
-  color: #666;
-  border: 1px solid #2a2a2a;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-strong);
   border-radius: 10px;
   padding: 11px 22px;
   font-family: 'Barlow', sans-serif;
   font-size: 13px;
   font-weight: 400;
-  letter-spacing: 0.5px;
   cursor: pointer;
   transition: border-color 0.2s, color 0.2s;
 }
 
-.btnBack:hover { border-color: #555; color: #ccc; }
+.btnBack:hover { border-color: var(--text-muted); color: var(--text-primary); }
 
-/* ── Responsive ── */
 @media (max-width: 720px) {
   .contactPage { padding: 48px 20px 60px; }
   .hero { margin-bottom: 36px; }
-  .contactWrapper { border-radius: 14px; }
   .formBody, .formActions { padding-left: 20px; padding-right: 20px; }
   .stepper { padding: 18px 20px; }
   .formRow { grid-template-columns: 1fr; gap: 0; }

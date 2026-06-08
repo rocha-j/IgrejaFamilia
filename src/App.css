@@ -1,5 +1,81 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600&display=swap');
 
+/* ─────────────────────────────────────────
+   CSS VARIABLES — Dark (default) / Light
+───────────────────────────────────────── */
+:root {
+  --bg-page:         #0a0a0a;
+  --bg-card:         #111111;
+  --bg-card-alt:     #0d0d0d;
+  --bg-input:        #0d0d0d;
+  --bg-input-focus:  #111111;
+  --bg-shell:        #000000;
+  --bg-header:       rgba(10, 10, 10, 0.92);
+  --bg-mobile-menu:  rgba(10, 10, 10, 0.97);
+
+  --border-card:     #1e1e1e;
+  --border-input:    #222222;
+  --border-strong:   #2a2a2a;
+  --border-subtle:   #141414;
+
+  --text-primary:    #ffffff;
+  --text-secondary:  #666666;
+  --text-muted:      #555555;
+  --text-dim:        #444444;
+  --text-very-dim:   #333333;
+  --text-nav:        #aaaaaa;
+  --text-desc:       #bbbbbb;
+
+  --accent:          #f0c040;
+  --accent-hover:    #e0b030;
+  --accent-rgb:      240, 192, 64;
+
+  --lamp-wire:       #3a3a3a;
+  --lamp-shade:      #1e1e1e;
+  --lamp-rim:        #333333;
+  --lamp-socket:     #282828;
+  --lamp-cord:       #555555;
+  --lamp-knot:       #666666;
+}
+
+[data-theme="light"] {
+  --bg-page:         #E6DACD;
+  --bg-card:         #F5EFE7;
+  --bg-card-alt:     #EFE6DB;
+  --bg-input:        #EFE6DB;
+  --bg-input-focus:  #F5EFE7;
+  --bg-shell:        #E6DACD;
+  --bg-header:       rgba(230, 218, 205, 0.93);
+  --bg-mobile-menu:  rgba(239, 230, 219, 0.98);
+
+  --border-card:     #D7C6B2;
+  --border-input:    #C3AF98;
+  --border-strong:   #B89F83;
+  --border-subtle:   #D7C6B2;
+
+  --text-primary:    #2E1F13;
+  --text-secondary:  #7F5932;
+  --text-muted:      #9A6E3E;
+  --text-dim:        #B89F83;
+  --text-very-dim:   #C3AF98;
+  --text-nav:        #7F5932;
+  --text-desc:       #5C3F24;
+
+  --accent:          #C38A2A;
+  --accent-hover:    #B57A1F;
+  --accent-rgb:      195, 138, 42;
+
+  --lamp-wire:       #9A6E3E;
+  --lamp-shade:      #9A6E3E;
+  --lamp-rim:        #A77B4B;
+  --lamp-socket:     #7F5932;
+  --lamp-cord:       #B89F83;
+  --lamp-knot:       #A77B4B;
+}
+
+/* ─────────────────────────────────────────
+   Global reset / shell
+───────────────────────────────────────── */
 * {
   margin: 0;
   padding: 0;
@@ -9,8 +85,9 @@
 html, body, #root {
   height: 100%;
   width: 100%;
-  background: #000;
+  background: var(--bg-shell);
   font-family: 'Barlow', sans-serif;
+  transition: background 0.35s ease, color 0.35s ease;
 }
 
 a {
@@ -23,7 +100,8 @@ a {
   flex-direction: column;
   min-height: 100vh;
   width: 100%;
-  background: #000;
+  background: var(--bg-shell);
+  transition: background 0.35s ease;
 }
 
 .content {

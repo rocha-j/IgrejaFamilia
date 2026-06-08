@@ -1,9 +1,4 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
-  background: #000;
+  background: var(--bg-shell, #000);
+  transition: background 0.35s ease;
 }

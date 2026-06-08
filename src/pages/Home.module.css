@@ -1,13 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600&display=swap');
 
-/* ── Page shell ── */
-.homePage {
-  display: flex;
-  flex-direction: column;
-  background: #0a0a0a;
-}
+.homePage { display: flex; flex-direction: column; background: var(--bg-page); transition: background 0.35s ease; }
 
-/* ── Carousel ── */
 .carouselWrapper {
   position: relative;
   width: 100%;
@@ -15,10 +9,7 @@
   overflow: hidden;
 }
 
-.carouselViewport {
-  width: 100%;
-  height: 100%;
-}
+.carouselViewport { width: 100%; height: 100%; }
 
 .carouselTrack {
   display: flex;
@@ -34,7 +25,6 @@
   background-repeat: no-repeat;
 }
 
-/* ── Hero overlay ── */
 .heroOverlay {
   position: absolute;
   inset: 0;
@@ -44,12 +34,7 @@
   justify-content: center;
   text-align: center;
   padding: 24px 20px;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.1) 0%,
-    rgba(0, 0, 0, 0.55) 55%,
-    rgba(0, 0, 0, 0.88) 100%
-  );
+  background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0.88) 100%);
   z-index: 2;
   pointer-events: none;
 }
@@ -59,7 +44,7 @@
   color: #f0c040;
   letter-spacing: 3px;
   text-transform: uppercase;
-  border: 1px solid rgba(240, 192, 64, 0.4);
+  border: 1px solid rgba(240,192,64,0.4);
   border-radius: 20px;
   padding: 5px 14px;
   display: inline-block;
@@ -73,13 +58,10 @@
   color: #fff;
   line-height: 1.2;
   margin: 0 0 28px;
-  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.6);
+  text-shadow: 0 2px 24px rgba(0,0,0,0.6);
 }
 
-.heroAccent {
-  color: #f0c040;
-  display: block;
-}
+.heroAccent { color: #f0c040; display: block; }
 
 .heroCta {
   pointer-events: all;
@@ -100,18 +82,17 @@
 .heroCta:hover {
   background: #e0b030;
   transform: translateY(-2px);
-  box-shadow: 0 8px 28px rgba(240, 192, 64, 0.35);
+  box-shadow: 0 8px 28px rgba(240,192,64,0.35);
 }
 
-/* ── Nav arrows ── */
 .navBtn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   z-index: 10;
-  background: rgba(0, 0, 0, 0.38);
+  background: rgba(0,0,0,0.38);
   color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255,255,255,0.12);
   border-radius: 50%;
   width: 46px;
   height: 46px;
@@ -124,15 +105,14 @@
 }
 
 .navBtn:hover {
-  background: rgba(240, 192, 64, 0.2);
-  border-color: rgba(240, 192, 64, 0.5);
+  background: rgba(240,192,64,0.2);
+  border-color: rgba(240,192,64,0.5);
   color: #f0c040;
 }
 
 .prev { left: 20px; }
 .next { right: 20px; }
 
-/* ── Dots ── */
 .dots {
   position: absolute;
   bottom: 22px;
@@ -147,53 +127,48 @@
   width: 7px;
   height: 7px;
   border-radius: 4px;
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255,255,255,0.3);
   border: none;
   cursor: pointer;
   padding: 0;
   transition: width 0.3s ease, background 0.3s ease;
 }
 
-.dotActive {
-  width: 26px;
-  background: #f0c040;
-}
+.dotActive { width: 26px; background: #f0c040; }
 
-/* ── Discover section ── */
 .discoverSection {
-  background: #0a0a0a;
+  background: var(--bg-page);
   padding: 64px 40px 72px;
+  transition: background 0.35s ease;
 }
 
-.sectionHeader {
-  text-align: center;
-  margin-bottom: 40px;
-}
+.sectionHeader { text-align: center; margin-bottom: 40px; }
 
 .sectionTag {
   font-size: 11px;
-  color: #f0c040;
+  color: var(--accent);
   letter-spacing: 3px;
   text-transform: uppercase;
-  border: 1px solid rgba(240, 192, 64, 0.3);
+  border: 1px solid rgba(var(--accent-rgb), 0.3);
   border-radius: 20px;
   padding: 5px 14px;
   display: inline-block;
   margin-bottom: 16px;
+  transition: color 0.35s ease, border-color 0.35s ease;
 }
 
 .sectionTitle {
   font-family: 'Barlow', sans-serif;
   font-size: clamp(24px, 3.5vw, 40px);
   font-weight: 600;
-  color: #fff;
+  color: var(--text-primary);
   margin: 0;
   line-height: 1.2;
+  transition: color 0.35s ease;
 }
 
-.accent { color: #f0c040; }
+.accent { color: var(--accent); transition: color 0.35s ease; }
 
-/* ── Cards grid ── */
 .homeCards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -209,17 +184,14 @@
   overflow: hidden;
   text-decoration: none;
   display: block;
-  border: 1px solid #1e1e1e;
-  transition:
-    transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
-    border-color 0.3s,
-    box-shadow 0.3s;
+  border: 1px solid var(--border-card);
+  transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1), border-color 0.3s, box-shadow 0.3s;
 }
 
 .homeCard:hover {
   transform: translateY(-6px) scale(1.015);
-  border-color: rgba(240, 192, 64, 0.3);
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5);
+  border-color: rgba(var(--accent-rgb), 0.3);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.5);
 }
 
 .cardBg {
@@ -236,12 +208,7 @@
 .cardOverlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.88) 0%,
-    rgba(0, 0, 0, 0.28) 55%,
-    transparent 100%
-  );
+  background: linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.28) 55%, transparent 100%);
   transition: opacity 0.3s;
 }
 
@@ -284,20 +251,16 @@
   letter-spacing: 2px;
   text-transform: uppercase;
   color: #f0c040;
-  border-bottom: 1px solid rgba(240, 192, 64, 0.35);
+  border-bottom: 1px solid rgba(240,192,64,0.35);
   padding-bottom: 2px;
   width: fit-content;
   transition: border-color 0.2s, letter-spacing 0.25s;
 }
 
-.homeCard:hover .cardBtn {
-  border-color: #f0c040;
-  letter-spacing: 3px;
-}
+.homeCard:hover .cardBtn { border-color: #f0c040; letter-spacing: 3px; }
 
-/* ── Responsive ── */
 @media (max-width: 900px) {
-  .homeCards { grid-template-columns: repeat(2, 1fr); }
+  .homeCards { grid-template-columns: repeat(2,1fr); }
   .homeCard:last-child { grid-column: 1 / -1; }
 }
 

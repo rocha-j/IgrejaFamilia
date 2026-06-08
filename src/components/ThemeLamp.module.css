@@ -1,0 +1,109 @@
+/* ── Container ── */
+.container {
+  position: fixed;
+  right: 28px;
+  top: 0;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 48px;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ── Wire ── */
+.wire {
+  width: 2px;
+  height: 14px;
+  background: var(--lamp-wire);
+  border-radius: 1px;
+  pointer-events: none;
+  transition: background 0.35s ease;
+}
+
+/* ── Lamp body ── */
+.lampWrap {
+  position: relative;
+  pointer-events: none;
+}
+
+/* Glow aura quando ON */
+.glow {
+  position: absolute;
+  left: 50%;
+  bottom: -4px;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 64px;
+  background: radial-gradient(ellipse at center, rgba(255, 238, 80, 0.28) 0%, transparent 68%);
+  pointer-events: none;
+  animation: glowPulse 2.8s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.75; transform: translateX(-50%) scale(1); }
+  50%       { opacity: 1;    transform: translateX(-50%) scale(1.15); }
+}
+
+/* Flash ao trocar tema */
+@keyframes lampFlash {
+  0%   { transform: scale(1);    filter: brightness(1); }
+  25%  { transform: scale(1.2);  filter: brightness(2.5); }
+  100% { transform: scale(1);    filter: brightness(1); }
+}
+
+.lampWrap.toggling { animation: lampFlash 0.5s ease-out; }
+
+/* ── Área da cordinha ── */
+.cordArea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: all;
+  -webkit-tap-highlight-color: transparent;
+  padding: 0 12px; /* área de toque maior */
+  box-sizing: content-box;
+}
+
+@keyframes cordSway {
+  0%, 100% { transform: rotate(-3.5deg); }
+  50%       { transform: rotate(3.5deg);  }
+}
+
+.cordArea.swaying {
+  animation: cordSway 1s ease-in-out infinite;
+  transform-origin: top center;
+}
+
+/* ── Fio ── */
+.cord {
+  width: 2px;
+  background: var(--lamp-cord);
+  border-radius: 1px;
+  transition: background 0.35s ease;
+  min-height: 34px;
+}
+
+/* ── Bolinha da cordinha ── */
+.knot {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: var(--lamp-knot);
+  border: 1.5px solid var(--lamp-cord);
+  margin-top: -1px;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.knot.knotReady {
+  background: var(--accent);
+  border-color: var(--accent);
+  transform: scale(1.3);
+  box-shadow: 0 0 12px rgba(var(--accent-rgb), 0.7);
+}
+
+/* ── Mobile: lamp hidden, replaced by header button ── */
+@media (max-width: 768px) {
+  .container { display: none; }
+}

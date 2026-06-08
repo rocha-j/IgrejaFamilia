@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom'
+import { useTheme } from '../context/ThemeContext'
 import styles from './Footer.module.css'
 
 const navLinks = [
@@ -9,20 +10,21 @@ const navLinks = [
 ]
 
 export default function Footer() {
+  const { theme } = useTheme()
+
+  const logoSrc = theme === 'light'
+    ? `${import.meta.env.BASE_URL}assets/logoLight.png`
+    : `${import.meta.env.BASE_URL}assets/logoatt.png`
+
   return (
     <footer className={styles.footer}>
       <div className={styles.topDivider} />
 
       <div className={styles.inner}>
 
-        {/* Coluna 1 — Brand */}
         <div className={styles.brand}>
           <div className={styles.brandRow}>
-            <img
-              src={`${import.meta.env.BASE_URL}assets/logoatt.png`}
-              alt="Igreja Família"
-              className={styles.logo}
-            />
+            <img src={logoSrc} alt="Igreja Família" className={styles.logo} />
             <div>
               <p className={styles.brandName}>IGREJA <span className={styles.accent}>FAMÍLIA</span></p>
               <p className={styles.brandSub}>SÃO BERNARDO</p>
@@ -53,7 +55,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Coluna 2 — Navegação */}
         <div className={styles.linksCol}>
           <p className={styles.colTitle}>Navegação</p>
           <nav className={styles.linksList}>
@@ -65,7 +66,6 @@ export default function Footer() {
           </nav>
         </div>
 
-        {/* Coluna 3 — Mapa */}
         <div className={styles.mapCol}>
           <p className={styles.colTitle}>Onde Estamos</p>
           <div className={styles.mapWrap}>

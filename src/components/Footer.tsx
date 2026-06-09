@@ -1,55 +1,104 @@
-import { NavLink } from 'react-router-dom'
-import { useTheme } from '../context/ThemeContext'
-import styles from './Footer.module.css'
+import { NavLink } from "react-router-dom";
+import { useTheme } from "../context/ThemeContext";
+import styles from "./Footer.module.css";
 
 const navLinks = [
-  { to: '/about',   label: 'Sobre Nós' },
-  { to: '/cults',   label: 'Cultos' },
-  { to: '/contact', label: 'Contato' },
-  { to: '/offer',   label: 'Dízimos & Ofertas' },
-]
+  { to: "/about", label: "Sobre Nós" },
+  { to: "/cults", label: "Cultos" },
+  { to: "/contact", label: "Contato" },
+  { to: "/offer", label: "Dízimos & Ofertas" },
+];
 
 export default function Footer() {
-  const { theme } = useTheme()
+  const { theme } = useTheme();
 
-  const logoSrc = theme === 'light'
-    ? `${import.meta.env.BASE_URL}assets/logoLight.png`
-    : `${import.meta.env.BASE_URL}assets/logoatt.png`
+  const logoSrc =
+    theme === "light"
+      ? `${import.meta.env.BASE_URL}assets/logoLight.png`
+      : `${import.meta.env.BASE_URL}assets/logoatt.png`;
 
   return (
     <footer className={styles.footer}>
       <div className={styles.topDivider} />
 
       <div className={styles.inner}>
-
         <div className={styles.brand}>
           <div className={styles.brandRow}>
             <img src={logoSrc} alt="Igreja Família" className={styles.logo} />
             <div>
-              <p className={styles.brandName}>IGREJA <span className={styles.accent}>FAMÍLIA</span></p>
+              <p className={styles.brandName}>
+                IGREJA <span className={styles.accent}>FAMÍLIA</span>
+              </p>
               <p className={styles.brandSub}>SÃO BERNARDO</p>
             </div>
           </div>
           <p className={styles.brandDesc}>
-            Uma comunidade movida pelo amor, pela missão de servir e pela visão de restaurar famílias.
+            Uma comunidade movida pelo amor, pela missão de servir e pela visão
+            de restaurar famílias.
           </p>
           <div className={styles.socials}>
-            <a href="https://www.instagram.com/igrejafamilia.ofc" target="_blank" rel="noreferrer" aria-label="Instagram">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <a
+              href="https://www.instagram.com/igrejafamilia.ofc"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Instagram"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
                 <circle cx="12" cy="12" r="4" />
-                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+                <circle
+                  cx="17.5"
+                  cy="6.5"
+                  r="1"
+                  fill="currentColor"
+                  stroke="none"
+                />
               </svg>
             </a>
-            <a href="https://www.facebook.com/share/1G3kdtetBm/" target="_blank" rel="noreferrer" aria-label="Facebook">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <a
+              href="https://www.facebook.com/share/1G3kdtetBm/"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Facebook"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
                 <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
               </svg>
             </a>
-            <a href="https://www.youtube.com/@igrejafamiliasbc" target="_blank" rel="noreferrer" aria-label="YouTube">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <a
+              href="https://www.youtube.com/@igrejafamiliasbc"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="YouTube"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
                 <path d="M22.54 6.42A2.78 2.78 0 0 0 20.6 4.47C18.88 4 12 4 12 4s-6.88 0-8.6.47A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.4 19.53C5.12 20 12 20 12 20s6.88 0 8.6-.47a2.78 2.78 0 0 0 1.94-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z" />
-                <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor" stroke="none" />
+                <polygon
+                  points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"
+                  fill="currentColor"
+                  stroke="none"
+                />
               </svg>
             </a>
           </div>
@@ -58,7 +107,7 @@ export default function Footer() {
         <div className={styles.linksCol}>
           <p className={styles.colTitle}>Navegação</p>
           <nav className={styles.linksList}>
-            {navLinks.map(link => (
+            {navLinks.map((link) => (
               <NavLink key={link.to} to={link.to} className={styles.footerLink}>
                 {link.label}
               </NavLink>
@@ -81,17 +130,19 @@ export default function Footer() {
             />
           </div>
           <p className={styles.address}>
-            Av. Wallace Simonsen, 414 — Nova Petrópolis<br />
+            Av. Wallace Simonsen, 414 — Nova Petrópolis
+            <br />
             São Bernardo do Campo / SP
           </p>
         </div>
-
       </div>
 
       <div className={styles.bottom}>
         <p>© 2026 Primeira Igreja Família em São Bernardo</p>
-        <p>Desenvolvido por <span className={styles.accent}>Jeferson Rocha</span></p>
+        <p>
+          Desenvolvido por <span className={styles.accent}>Jeferson Rocha</span>
+        </p>
       </div>
     </footer>
-  )
+  );
 }

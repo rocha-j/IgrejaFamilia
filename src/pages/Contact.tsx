@@ -10,20 +10,45 @@ const WHATSAPP_NUMBER = '5511948803773'
 
 export default function Contact() {
   const [currentStep, setCurrentStep] = useState(0)
+  const [showError, setShowError] = useState(false)
   const [form, setForm] = useState({
     nome: '', sobrenome: '', telefone: '', email: '',
     mensagem: '', nascimento: '', estadoCivil: '',
     endereco: '', comoConheceu: ''
   })
 
+  const step1Valid =
+    form.nome.trim() !== '' &&
+    form.sobrenome.trim() !== '' &&
+    form.telefone.trim() !== '' &&
+    form.email.trim() !== '' &&
+    form.mensagem.trim() !== ''
+
+  const step2Valid =
+    form.nascimento !== '' &&
+    form.estadoCivil !== '' &&
+    form.endereco.trim() !== '' &&
+    form.comoConheceu !== ''
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value })
+    setShowError(false)
   }
 
-  const next = () => setCurrentStep(prev => prev + 1)
-  const prev = () => setCurrentStep(prev => prev - 1)
+  const next = () => {
+    if (!step1Valid) { setShowError(true); return }
+    setShowError(false)
+    setCurrentStep(prev => prev + 1)
+  }
+
+  const prev = () => {
+    setShowError(false)
+    setCurrentStep(prev => prev - 1)
+  }
 
   const submit = () => {
+    if (!step2Valid) { setShowError(true); return }
+
     const mensagem = `
 *Contato pelo site - Igreja Família SBC*
 
@@ -34,16 +59,18 @@ E-mail: ${form.email}
 Mensagem: ${form.mensagem}
 
 *INFORMACOES PESSOAIS*
-Nascimento: ${form.nascimento || 'Nao informado'}
-Estado Civil: ${form.estadoCivil || 'Nao informado'}
-Endereco: ${form.endereco || 'Nao informado'}
-Como nos conheceu: ${form.comoConheceu || 'Nao informado'}
+Nascimento: ${form.nascimento}
+Estado Civil: ${form.estadoCivil}
+Endereco: ${form.endereco}
+Como nos conheceu: ${form.comoConheceu}
     `.trim()
 
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(mensagem)}`
     window.open(url, '_blank')
     setCurrentStep(2)
   }
+
+  const currentStepValid = currentStep === 0 ? step1Valid : step2Valid
 
   return (
     <section className={styles.contactPage}>
@@ -118,11 +145,11 @@ Como nos conheceu: ${form.comoConheceu || 'Nao informado'}
               </div>
               <div className={styles.formRow}>
                 <div className={styles.formGroup}>
-                  <label>Data de Nascimento</label>
+                  <label>Data de Nascimento <span className={styles.required}>*</span></label>
                   <input name="nascimento" type="date" value={form.nascimento} onChange={handleChange} />
                 </div>
                 <div className={styles.formGroup}>
-                  <label>Estado Civil</label>
+                  <label>Estado Civil <span className={styles.required}>*</span></label>
                   <select name="estadoCivil" value={form.estadoCivil} onChange={handleChange}>
                     <option value="">Selecione</option>
                     <option value="solteiro">Solteiro(a)</option>
@@ -134,11 +161,11 @@ Como nos conheceu: ${form.comoConheceu || 'Nao informado'}
               </div>
               <div className={styles.formRow}>
                 <div className={styles.formGroup}>
-                  <label>Endereço</label>
+                  <label>Endereço <span className={styles.required}>*</span></label>
                   <input name="endereco" value={form.endereco} onChange={handleChange} placeholder="Rua, número, bairro" />
                 </div>
                 <div className={styles.formGroup}>
-                  <label>Como nos conheceu?</label>
+                  <label>Como nos conheceu? <span className={styles.required}>*</span></label>
                   <select name="comoConheceu" value={form.comoConheceu} onChange={handleChange}>
                     <option value="">Selecione</option>
                     <option value="instagram">Instagram</option>
@@ -163,9 +190,26 @@ Como nos conheceu: ${form.comoConheceu || 'Nao informado'}
 
         {currentStep < 2 && (
           <div className={styles.formActions}>
+            {showError && !currentStepValid && (
+              <span className={styles.errorMsg}>Preencha todos os campos</span>
+            )}
             {currentStep === 1 && <button className={styles.btnBack} onClick={prev}>← Voltar</button>}
-            {currentStep === 0 && <button className={styles.btnNext} onClick={next}>Próximo →</button>}
-            {currentStep === 1 && <button className={styles.btnNext} onClick={submit}>Enviar via WhatsApp</button>}
+            {currentStep === 0 && (
+              <button
+                className={`${styles.btnNext} ${!step1Valid ? styles.btnDisabled : ''}`}
+                onClick={next}
+              >
+                Próximo →
+              </button>
+            )}
+            {currentStep === 1 && (
+              <button
+                className={`${styles.btnNext} ${!step2Valid ? styles.btnDisabled : ''}`}
+                onClick={submit}
+              >
+                Enviar via WhatsApp
+              </button>
+            )}
           </div>
         )}
 

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600&family=Dancing+Script:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap');
 
 .aboutPage {
   min-height: calc(100vh - 155px);
@@ -6,95 +6,122 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 72px 40px 80px;
+  padding: 96px 40px 104px;
   font-family: 'Barlow', sans-serif;
   box-sizing: border-box;
   transition: background 0.35s ease;
 }
 
-.hero { text-align: center; max-width: 640px; margin-bottom: 64px; }
+/* ── Hero ── */
+.hero {
+  text-align: center;
+  max-width: 640px;
+  margin-bottom: 72px;
+}
 
 .heroTag {
+  font-family: 'Barlow', sans-serif;
   font-size: 11px;
+  font-weight: 500;
   color: var(--accent);
-  letter-spacing: 3px;
+  letter-spacing: 4px;
   text-transform: uppercase;
-  border: 1px solid rgba(var(--accent-rgb), 0.3);
-  border-radius: 20px;
-  padding: 5px 14px;
+  border: 1px solid rgba(var(--accent-rgb), 0.35);
+  border-radius: 40px;
+  padding: 6px 18px;
   display: inline-block;
-  margin-bottom: 20px;
+  margin-bottom: 22px;
   transition: color 0.35s ease, border-color 0.35s ease;
 }
 
 .heroTitle {
-  font-family: 'Barlow', sans-serif;
-  font-size: clamp(28px, 4vw, 46px);
-  font-weight: 600;
+  font-family: 'Plus Jakarta Sans', 'Barlow', sans-serif;
+  font-size: clamp(32px, 5vw, 58px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
   color: var(--text-primary);
-  line-height: 1.2;
-  margin: 0 0 16px;
+  line-height: 1.1;
+  margin: 0 0 18px;
   transition: color 0.35s ease;
 }
 
-.highlight { color: var(--accent); transition: color 0.35s ease; }
+.highlight {
+  color: var(--accent);
+  transition: color 0.35s ease;
+}
 
 .heroSub {
-  font-size: 15px;
+  font-size: 16px;
   color: var(--text-secondary);
   font-weight: 300;
-  line-height: 1.7;
-  margin: 0 0 36px;
+  line-height: 1.75;
+  margin: 0 0 40px;
   transition: color 0.35s ease;
 }
 
 .heroDivider {
-  width: 48px;
+  width: 56px;
   height: 2px;
   background: linear-gradient(90deg, transparent, var(--accent), transparent);
   margin: 0 auto;
+  border-radius: 2px;
   transition: background 0.35s ease;
 }
 
+/* ── Pillars grid ── */
 .pillarsGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
-  max-width: 1080px;
+  gap: 24px;
+  max-width: 1100px;
   width: 100%;
 }
 
 .pillarCard {
   background: var(--bg-card);
   border: 1px solid var(--border-card);
-  border-radius: 16px;
-  padding: 40px 32px 44px;
+  border-radius: 24px;
+  padding: 44px 36px 48px;
   display: flex;
   flex-direction: column;
   position: relative;
   overflow: hidden;
-  transition: border-color 0.3s, transform 0.3s, background 0.35s ease;
+  transition:
+    border-color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.35s ease;
 }
 
 .pillarCard::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at top left, rgba(var(--accent-rgb), 0.06) 0%, transparent 60%);
+  background: radial-gradient(ellipse at top left, rgba(var(--accent-rgb), 0.06) 0%, transparent 65%);
   pointer-events: none;
+  border-radius: inherit;
 }
 
-.pillarCard:hover { border-color: rgba(var(--accent-rgb), 0.35); transform: translateY(-4px); }
+.pillarCard:hover {
+  border-color: rgba(var(--accent-rgb), 0.3);
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+}
 
-.cardTop { display: flex; flex-direction: column; margin-bottom: 24px; }
+.cardTop {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 24px;
+}
 
 .pillarWord {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(44px, 5vw, 60px);
+  font-family: 'Plus Jakarta Sans', 'Barlow', sans-serif;
+  font-size: clamp(40px, 4.5vw, 58px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
   color: var(--accent);
-  line-height: 0.9;
+  line-height: 0.95;
   margin: 0;
-  letter-spacing: 2px;
   transition: color 0.35s ease;
 }
 
@@ -102,15 +129,22 @@
   font-family: 'Dancing Script', cursive;
   font-size: clamp(15px, 1.6vw, 19px);
   color: var(--accent);
-  margin-top: 4px;
+  margin-top: 6px;
   display: block;
   transition: color 0.35s ease;
 }
 
-.cardDivider { width: 36px; height: 1px; background: var(--border-strong); margin-bottom: 24px; transition: background 0.35s ease; }
+.cardDivider {
+  width: 40px;
+  height: 1px;
+  background: var(--border-strong);
+  margin-bottom: 24px;
+  border-radius: 2px;
+  transition: background 0.35s ease;
+}
 
 .pillarBody {
-  font-size: 13.5px;
+  font-size: 14px;
   color: var(--text-secondary);
   font-weight: 300;
   line-height: 1.85;
@@ -118,5 +152,16 @@
   transition: color 0.35s ease;
 }
 
-@media (max-width: 900px) { .pillarsGrid { grid-template-columns: 1fr; max-width: 480px; } }
-@media (max-width: 560px) { .aboutPage { padding: 48px 20px 60px; } .pillarCard { padding: 28px 24px 32px; } .hero { margin-bottom: 44px; } }
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .pillarsGrid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 560px) {
+  .aboutPage { padding: 64px 20px 72px; }
+  .pillarCard { padding: 32px 28px 36px; }
+  .hero { margin-bottom: 52px; }
+}

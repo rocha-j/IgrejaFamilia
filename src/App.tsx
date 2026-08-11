@@ -3,7 +3,6 @@ import { Routes, Route, useNavigate } from 'react-router-dom'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import Intro from './components/Intro'
-import ThemeLamp from './components/ThemeLamp'
 import Home from './pages/Home'
 import About from './pages/About'
 import Cults from './pages/Cults'
@@ -23,7 +22,6 @@ function AppContent() {
       {showIntro && <Intro onDone={() => setShowIntro(false)} />}
 
       <div className="shell" style={{ visibility: showIntro ? 'hidden' : 'visible' }}>
-        <ThemeLamp />
         <Header />
         <main className="content">
           <Routes>

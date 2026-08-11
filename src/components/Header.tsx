@@ -22,7 +22,7 @@ export default function Header() {
   const [open, setOpen] = useState(false)
   const close = () => setOpen(false)
 
-  const nameSrc = `${import.meta.env.BASE_URL}assets/headerlogo.png`
+  const nameSrc = `${import.meta.env.BASE_URL}assets/imglogo.jpeg`
 
   return (
     <>

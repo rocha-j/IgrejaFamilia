@@ -35,10 +35,10 @@
 }
 
 .heroTitle {
-  font-family: 'Plus Jakarta Sans', 'Barlow', sans-serif;
+  font-family: 'Space Grotesk', 'Barlow', sans-serif;
   font-size: clamp(32px, 5vw, 58px);
   font-weight: 800;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.035em;
   color: var(--text-primary);
   line-height: 1.1;
   margin: 0 0 18px;
@@ -115,7 +115,7 @@
 }
 
 .pillarWord {
-  font-family: 'Plus Jakarta Sans', 'Barlow', sans-serif;
+  font-family: 'Space Grotesk', 'Barlow', sans-serif;
   font-size: clamp(40px, 4.5vw, 58px);
   font-weight: 800;
   letter-spacing: -0.03em;

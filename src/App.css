@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Bebas+Neue&family=Barlow:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Bebas+Neue&family=Barlow:wght@300;400;500;600&display=swap');
 
 /* ─────────────────────────────────────────
    CSS VARIABLES — Dark only
@@ -26,9 +26,15 @@
   --text-nav:        rgba(255, 255, 255, 0.58);
   --text-desc:       rgba(255, 255, 255, 0.65);
 
-  --accent:          #f0c040;
-  --accent-hover:    #e0b030;
-  --accent-rgb:      240, 192, 64;
+  --accent:          #b6bacd;
+  --accent-hover:    #d3d6e2;
+  --accent-rgb:      182, 186, 205;
+
+  --glass-panel:     rgba(102, 108, 135, 0.74);
+  --glass-border:    rgba(255, 255, 255, 0.14);
+
+  --radius-block:    24px;
+  --radius-pill:     999px;
 }
 
 /* ─────────────────────────────────────────

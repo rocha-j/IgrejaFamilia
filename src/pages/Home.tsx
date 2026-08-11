@@ -143,6 +143,7 @@ export default function Home() {
       <section
         ref={el => { refs.current[2] = el }}
         className={styles.cultos}
+        style={{ backgroundImage: `url(${import.meta.env.BASE_URL}assets/cd2.jpg)` }}
       >
         <h2 className={styles.cultosTitle}>Participe dos nossos cultos</h2>
         <p className={styles.cultosSub}>
@@ -163,25 +164,25 @@ export default function Home() {
             <strong>Domingo 10h e 18h</strong>
             <span>Cultos de Celebração</span>
           </div>
+
+          <p className={styles.onlineTitle}>Transmissões online</p>
+          <p className={styles.onlineSub}>
+            Os cultos são transmitidos ao vivo pelo YouTube.
+          </p>
+
+          <a
+            href="https://www.youtube.com/@igrejafamiliasbc"
+            target="_blank"
+            rel="noreferrer"
+            className={styles.cultosBtn}
+          >
+            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16" style={{ flexShrink: 0 }}>
+              <path d="M22.54 6.42A2.78 2.78 0 0 0 20.6 4.47C18.88 4 12 4 12 4s-6.88 0-8.6.47A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.4 19.53C5.12 20 12 20 12 20s6.88 0 8.6-.47a2.78 2.78 0 0 0 1.94-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z" />
+              <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#1a0040" />
+            </svg>
+            Assista aqui
+          </a>
         </div>
-
-        <p className={styles.onlineTitle}>Transmissões online</p>
-        <p className={styles.onlineSub}>
-          Os cultos são transmitidos ao vivo pelo YouTube.
-        </p>
-
-        <a
-          href="https://www.youtube.com/@igrejafamiliasbc"
-          target="_blank"
-          rel="noreferrer"
-          className={styles.cultosBtn}
-        >
-          <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16" style={{ flexShrink: 0 }}>
-            <path d="M22.54 6.42A2.78 2.78 0 0 0 20.6 4.47C18.88 4 12 4 12 4s-6.88 0-8.6.47A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.4 19.53C5.12 20 12 20 12 20s6.88 0 8.6-.47a2.78 2.78 0 0 0 1.94-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z" />
-            <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#1a0040" />
-          </svg>
-          Assista aqui
-        </a>
       </section>
 
       {/* ── 4. Cards ── */}

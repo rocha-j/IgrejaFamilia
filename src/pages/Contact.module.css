@@ -33,10 +33,10 @@
 }
 
 .heroTitle {
-  font-family: 'Plus Jakarta Sans', 'Barlow', sans-serif;
+  font-family: 'Space Grotesk', 'Barlow', sans-serif;
   font-size: clamp(32px, 5vw, 58px);
   font-weight: 800;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.035em;
   color: var(--text-primary);
   line-height: 1.1;
   margin: 0 0 18px;
@@ -203,7 +203,7 @@
 }
 
 .formSection h2 {
-  font-family: 'Plus Jakarta Sans', 'Barlow', sans-serif;
+  font-family: 'Space Grotesk', 'Barlow', sans-serif;
   font-size: 24px;
   font-weight: 700;
   letter-spacing: -0.02em;
@@ -234,7 +234,7 @@
 }
 
 .success h2 {
-  font-family: 'Plus Jakarta Sans', 'Barlow', sans-serif;
+  font-family: 'Space Grotesk', 'Barlow', sans-serif;
   font-size: 22px;
   font-weight: 700;
   color: var(--text-primary);
@@ -368,7 +368,7 @@
   border: none;
   border-radius: 12px;
   padding: 13px 32px;
-  font-family: 'Plus Jakarta Sans', 'Barlow', sans-serif;
+  font-family: 'Space Grotesk', 'Barlow', sans-serif;
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.3px;
